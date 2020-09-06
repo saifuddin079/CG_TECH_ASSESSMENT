@@ -4,7 +4,7 @@
       <a href="#" @click.prevent="viewDetail">
         <figure>
           <img v-if="item && item.image" :src="item.image.medium" />
-          <img v-else src="@/assets/images/poster-not-available.png" />
+          <img v-else src="@/assets/images/NoBanner.png" />
         </figure>
         <span class="card-title">{{ item.name }}</span>
       </a>
