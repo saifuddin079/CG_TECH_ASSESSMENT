@@ -1,0 +1,45 @@
+
+// Colors
+$color-primary: #b62028;
+$color-secondary: rgb(175, 65, 28);
+$color-tags: #b62028;
+$color-text-primary: #efefef;
+$color-text-secondary: #fff;
+
+$background-primary: #f3d16c;
+$background-secondary: #b62028;
+$background-border: #46080b;
+$background-input: #e1d1e6;
+
+// - Poster
+$poster-shadow: rgba(0, 0, 0, 0.4);
+$poster-shadow-active: rgba(255, 102, 51, 0.3);
+
+
+// Fonts
+$font-primary: "Courier New", Courier, monospace;
+$font-secondary: "Trocchi";
+
+// Breakpoints
+$screen-sm-min: 640px;
+$screen-md-min: 768px;
+$screen-lg-min: 960px;
+
+
+
+// mixins
+@mixin sm {
+    @media (min-width: #{$screen-sm-min}) {
+        @content;
+    }
+ }
+ @mixin md {
+    @media (min-width: #{$screen-md-min}) {
+        @content;
+    }
+ }
+ @mixin lg {
+    @media (min-width: #{$screen-lg-min}) {
+        @content;
+    }
+ }
