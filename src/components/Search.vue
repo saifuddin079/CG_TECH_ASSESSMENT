@@ -23,7 +23,7 @@ export default {
     };
   },
   methods: {
-    search() {
+    search:() => {
       if (this.query.length >= 2){
         this.$router.push('/search?q=' + this.query);
         this.resetSearch();

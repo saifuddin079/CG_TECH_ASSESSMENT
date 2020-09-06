@@ -1,6 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
 import Search from '@/components/Search.vue'
-import router from '@/router';
 
 describe('Search.vue', () => {
   let wrapper;
@@ -38,10 +37,6 @@ describe('Search.vue', () => {
     wrapper.setMethods({ resetSearch: fn });
     wrapper.find('input').trigger('blur')
     expect(fn).toBeCalled()
-  }) 
-
-  it('sets "query" to empty', () => {
-    wrapper.setData({ query: '' });
-    expect(wrapper.vm.query).toBe('')
+    
   }) 
 })

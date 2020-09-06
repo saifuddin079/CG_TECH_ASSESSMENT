@@ -43,4 +43,10 @@ describe('LandingView.vue', () => {
         expect(fn).not.toBe(undefined)
     })
 
+    it('showmore should add more results', () => {
+        wrapper.vm.showCount = 5
+        wrapper.vm.showMore()
+        expect(wrapper.vm.showCount).toBe(10)
+    })
+
 })
