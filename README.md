@@ -5,8 +5,16 @@
 ### Getting Started
 - Install Node.js
 - Initialize **package.json** (with `npm init`)
-- Install:
-  - Webpack and webpack-dev-server.
+- #### Third Party Packages
+  - #### axios
+  Axios is a Javascript library used to make HTTP requests from node.js or XMLHttpRequests from the browser that also supports the ES6 Promise API. 
+  - #### lodash
+  A modern JavaScript utility library delivering modularity, performance & extras.
+  - #### moment
+  MomentJS is a JavaScript library which helps is parsing, validating, manipulating and displaying date/time in JavaScript in a very easy way.
+
+## Why Vue Js
+Vue.js is an open source progressive JavaScript framework used to develop interactive web interfaces. Vue.js focusses on the view layer, offers a lot of functionality for the view layer and can be used for build powerful single-page web apps. Vue.js uses JavaScript ES5 or ES6 while Laravel provides core library for Vue.js.
 
 ## Running The Tests
 ``` bash
@@ -18,13 +26,16 @@ npm run test:unit
 # install dependencies
 npm install
 
-# serve with hot reload at localhost:8080
-npm run dev
+# serve at localhost:8080
+npm run serve
 
 # build for production with minification
 npm run build
 ```
 For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
+
+## Notes
+* Built using  [`vue-cli`](https://github.com/vuejs/vue-cli) (Vue CLI 3)
 
 ## Versioning
 
