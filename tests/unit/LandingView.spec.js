@@ -4,11 +4,17 @@ import axios from 'axios'
 
 describe('LandingView.vue', () => {
     let wrapper;
+    const $router = {
+        push: jest.fn()
+    }
 
     beforeEach(() => {
         wrapper = shallowMount(LandingView, {
             stubs: {
-                'font-awesome-icon': true,
+                'font-awesome-icon': true
+            }, 
+            mocks: {
+                $router
             }
         })
     })
@@ -47,6 +53,12 @@ describe('LandingView.vue', () => {
         wrapper.vm.showCount = 5
         wrapper.vm.showMore()
         expect(wrapper.vm.showCount).toBe(10)
+    })
+
+    it('redirect when viewdetails is called', () => {
+        let id = 'test'
+        wrapper.vm.viewDetailInfo(id)
+        expect($router.push).toHaveBeenCalledWith('/details/' + id);
     })
 
 })
