@@ -9,7 +9,6 @@
     <span v-else>
       <ItemList :results="popularShows" type="movie" @item-clicked="viewDetailInfo" />
     </span>
-
     <h2 class="title">
       <font-awesome-icon icon="video" transform="shrink-3" size="1x" />&nbsp;
       Suit Your Genres
@@ -23,8 +22,6 @@
       </div>
       <ItemListMore v-if="totalLength > showCount" :loading="loading" @view-more="showMore()" />
     </span>
-
-
   </div>
 </template>
 
@@ -88,7 +85,6 @@
     methods: {
       loadData: () => {
         return axios.get(`https://api.tvmaze.com/shows?page=1`).then(response => {
-          // console.log(response)
           return response.data
         })
       },

@@ -1,19 +1,20 @@
 <template>
   <li class="card">
-    <div>
+    <div >
       <a href="#" @click.prevent="viewDetail">
         <figure>
           <img v-if="item && item.image" :src="item.image.medium" />
           <img v-else src="@/assets/images/NoBanner.png" />
         </figure>
-        <span class="card-title">{{ item.name }}</span>
+        <span class="card-title">{{ item.name }} </br></br>
+          <font-awesome-icon class="icon" icon="star" size="1x" /> {{item.rating && item.rating.average ? item.rating.average+'/10' : 'No Ratings'}}
+        </span>
       </a>
     </div>
   </li>
 </template>
 
 <script>
-
 export default {
   name: 'TvCard',
   props: {
@@ -82,6 +83,7 @@ a {
 .icon{
   display: inline;
   color: #fff;
+  
 }
 @include sm {
   .card {

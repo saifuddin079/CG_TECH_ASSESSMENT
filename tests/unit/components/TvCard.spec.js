@@ -6,7 +6,7 @@ describe('TvCard.vue', () => {
 
   beforeEach(() => {
     wrapper = shallowMount(TvCard, {
-      mocks: {
+      stubs: {
         'font-awesome-icon': true
       },
       propsData: {

@@ -13,26 +13,25 @@
         </div>
         <section class="info">
           <h1>{{showDetails.name ? showDetails.name : 'No Info'}}</h1>
-
           <p v-if="showDetails.summary" v-html="showDetails.summary"></p>
           <p v-else>No Info</p>
-
           <h2 class="label">Release Date</h2>
           <p>{{formatDate(showDetails.premiered)}}</p>
-
           <h2 class="label">Genres</h2>
           <ul>
             <li v-if="!showDetails.genres || !showDetails.genres.length">No Info</li>
             <li v-else v-for="genre in showDetails.genres" :key="genre">{{genre}}</li>
           </ul>
-
+          <h2 class="label">Cast</h2>
+          <span v-if="!showDetails._embedded.cast || !showDetails._embedded.cast.length">No Info</span>
+          <span v-else v-for="(cast, index) in showDetails._embedded.cast" :key="index">{{cast.person.name}}<span
+              v-if="index + 1 < showDetails._embedded.cast.length">, </span></span>
           <h2 class="label">User Ratings</h2>
-          <p v-if="showDetails.rating && showDetails.rating.average">{{showDetails.rating.average}}/10</p>
-          <p v-else>User Rating are not available</p>
-
+          <p v-if="showDetails && showDetails.rating && showDetails.rating.average">{{showDetails.rating.average}}/10
+          </p>
+          <p v-else>User Ratings are not available</p>
           <h2 class="label">Language</h2>
           <p>{{showDetails.language ? showDetails.language : 'No Info'}}</p>
-
         </section>
       </div>
     </div>
@@ -53,7 +52,7 @@
     },
     methods: {
       loadData: (id) => {
-        return axios.get(`https://api.tvmaze.com/shows/${id}`).then(response => {
+        return axios.get(`https://api.tvmaze.com/shows/${id}?embed=cast`).then(response => {
           return response.data
         })
       },
@@ -104,13 +103,13 @@
     display: inline;
     padding: 4px;
     margin-right: 5px;
-
     background-color: $color-tags;
     color: $color-text-secondary;
     font-size: 0.9em;
   }
 
-  p {
+  p,
+  span {
     margin: 0;
     line-height: 1.4;
     color: rgb(47, 14, 78);

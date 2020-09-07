@@ -55,7 +55,7 @@ footer{
 }
 section {
   display: block;
-  min-height: 400px;
+  min-height: 500px;
   max-width: 1000px;
   margin: 0 auto;
 }
