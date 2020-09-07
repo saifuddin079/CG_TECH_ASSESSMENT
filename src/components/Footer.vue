@@ -13,6 +13,7 @@
 
 <style lang="scss" scoped>
 .footer {
+  display: table;
   margin: 0 auto;
   padding: 4em 0;
   text-align: center;
@@ -24,7 +25,7 @@ ul {
   padding: 0
 }
 li {
-  display: flex;
+  display: inline;
   padding: 1em;
 }
 a {

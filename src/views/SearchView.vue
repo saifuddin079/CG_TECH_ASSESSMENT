@@ -58,29 +58,10 @@
             }
         }).catch(() => {
             this.errorFlag = true
-            // console.log(e, "error...!!");
           }).finally(() => {
             this.loading = false;
             this.totalResults = this.results.length
           });
-       /*  API.httpGet({
-          url: `https://api.tvmaze.com/search/shows?q=${this.query}`
-        })
-          .then(res => {
-            if (res) {
-              for (let s of res) {
-                this.results.push(s.show);
-              }
-              this.slicedResults = this.results.slice(0, this.showCount);
-            }
-          })
-          .catch(e => {
-            this.errorFlag = true
-            console.log(e, "error...!!");
-          }).finally(() => {
-            this.loading = false;
-            this.totalResults = this.results.length
-          }); */
       },
       viewDetailInfo(id) {
         this.$router.push(`/details/${id}`)

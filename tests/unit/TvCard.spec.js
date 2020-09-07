@@ -42,7 +42,7 @@ describe('TvCard.vue', () => {
   })
 
   test('emits viewDetail when button is clicked', () => {
-    wrapper.find('a').trigger('click')                   
+    wrapper.vm.viewDetail()             
     expect(wrapper.emitted('item-clicked')).toHaveLength(1)
   })
 

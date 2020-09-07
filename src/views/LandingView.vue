@@ -99,30 +99,11 @@
           this.showByGenre = this.sortByGenre(this.totalShows)
           this.totalLength = Object.keys(this.showByGenre).length
           this.slicedShowByGenre = Object.fromEntries(Object.entries(this.showByGenre).slice(0, this.showCount))
-        }).catch(e => {
-          // console.log(e)
+        }).catch(() => {
         }).finally(() => {
           this.loading = false
         })
       },
-      /* async getShowList() {
-        this.loading = true;
-        axios
-          .httpGet({ url: `https://api.tvmaze.com/shows?page=1` })
-          .then(res => {
-            this.totalShows = res
-            this.popularShows = this.getTopPopular(this.totalShows)
-            this.showByGenre = this.sortByGenre(this.totalShows)
-            this.totalLength = Object.keys(this.showByGenre).length
-            this.slicedShowByGenre = Object.fromEntries(Object.entries(this.showByGenre).slice(0, this.showCount))
-          })
-          .catch(e => {
-            this.errorFlag = true
-            console.log(e, "error....!!");
-          }).finally(() => {
-            this.loading = false
-          });
-      }, */
 
       showMore() {
         this.showCount = this.showCount + 5

@@ -38,15 +38,18 @@ body {
 }
 #app {
   font-family: $font-primary, monospace;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   color: $color-text-primary;
   padding: 0;
   font-size: 1em;
 }
 header{
-  background: url('');
   border-bottom: 1px solid $background-border;
+  background-color: $background-secondary;
+  background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSm2xXSCGxaBBnZ2xcU7n92S4RP1aasU9Eq1A&usqp=CAU');
+}
+footer{
+  margin-top: 2em;
+  border-top: 1px solid $background-border;
   background-color: $background-secondary;
   background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSm2xXSCGxaBBnZ2xcU7n92S4RP1aasU9Eq1A&usqp=CAU');
 }
@@ -55,12 +58,6 @@ section {
   min-height: 400px;
   max-width: 1000px;
   margin: 0 auto;
-}
-footer{
-  margin-top: 2em;
-  border-top: 1px solid $background-border;
-  background-color: $background-secondary;
-  background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSm2xXSCGxaBBnZ2xcU7n92S4RP1aasU9Eq1A&usqp=CAU');
 }
 
 </style>

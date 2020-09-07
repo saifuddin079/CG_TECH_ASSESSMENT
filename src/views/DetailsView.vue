@@ -22,7 +22,8 @@
 
           <h2 class="label">Genres</h2>
           <ul>
-            <li v-for="genre in showDetails.genres" :key="genre">{{genre}}</li>
+            <li v-if="!showDetails.genres || !showDetails.genres.length">No Info</li>
+            <li v-else v-for="genre in showDetails.genres" :key="genre">{{genre}}</li>
           </ul>
 
           <h2 class="label">User Ratings</h2>
@@ -59,8 +60,8 @@
       getShowDetails(id) {
         this.loadData(id).then(data => {
           this.showDetails = JSON.parse(JSON.stringify(data));
-        }).catch(e => {
-          // console.log(e)
+        }).catch(() => {
+          this.errorFlag = true
         }).finally(() => {
           this.loading = false
         })

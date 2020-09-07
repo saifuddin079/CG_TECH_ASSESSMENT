@@ -8,7 +8,6 @@
       maxlength="20"
       v-model="query"
       @keypress.enter="search"
-      @blur="resetSearch"
       placeholder="Search TV Shows"
     />
   </div>
@@ -26,11 +25,8 @@ export default {
     search() {
       if (this.query.length >= 2){
         this.$router.push('/search?q=' + this.query);
-        this.resetSearch();
+        window.location.reload()
       }
-    },
-    resetSearch(){
-      this.query = '';
     }
   }
 };
