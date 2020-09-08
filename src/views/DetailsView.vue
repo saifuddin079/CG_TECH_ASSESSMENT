@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="unit">
-      <div v-if="loading">Loading ...</div>
-      <div v-else-if="errorFlag">Netwrok Error</div>
-      <div v-else-if="showDetails && showDetails.name">
+      <div class="disp" v-if="loading">Loading ...</div>
+      <div class="disp" v-else-if="errorFlag">Netwrok Error</div>
+      <div v-else="showDetails && showDetails.name">
         <div class="banner">
           <figure>
             <img
@@ -157,6 +157,12 @@ span {
   color: $color-secondary;
   font-size: 1em;
   text-transform: uppercase;
+}
+
+.disp {
+  margin-top: 10px;
+  color: $color-primary;
+  font-weight: bold;
 }
 
 @include sm {
