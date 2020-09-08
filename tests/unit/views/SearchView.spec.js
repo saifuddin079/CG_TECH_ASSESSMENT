@@ -57,16 +57,4 @@ describe("SearchView.vue", () => {
     }
     expect(wrapper.vm.slicedResults).toEqual([{ name: 1 }, { name: 2 }]);
   });
-
-  it("search shows should return an empty array", () => {
-    let d = [];
-    wrapper.vm.showCount = 2;
-    wrapper.results = [];
-    wrapper.vm.slicedResults = [];
-    wrapper.vm.searchShows(d);
-    for (let c of d) {
-      wrapper.results.push(c.show);
-    }
-    expect(wrapper.vm.slicedResults).toEqual([]);
-  });
 });

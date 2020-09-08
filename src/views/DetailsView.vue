@@ -75,27 +75,18 @@ export default {
     };
   },
   created() {
-    this.loadData(this.itemId);
+    this.getShowDetails(this.itemId);
   },
   methods: {
-    // load master data
-    loadData(id) {
-      this.loading = true;
-      API.get({ path: `/shows/${id}?embed=cast` })
-        .then(data => {
-          this.getShowDetails(data);
-        })
-        .catch(() => {
-          this.errorFlag = true;
-        })
-        .finally(() => {
-          this.loading = false;
-        });
-    },
-
-    // restructure received response - if needed
-    getShowDetails(data) {
-      this.showDetails = JSON.parse(JSON.stringify(data));
+    // get show data
+    async getShowDetails(id) {
+      let res = await API.get({ path: `/shows/${id}?embed=cast` });
+      if (!res.error) {
+        this.showDetails = res;
+      } else {
+        this.errorFlag = true;
+      }
+      this.loading = false;
     },
 
     // format date strings

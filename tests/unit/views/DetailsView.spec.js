@@ -32,15 +32,9 @@ describe("DetailsView.vue", () => {
     expect(result).toBe("Wednesday 01 Jan, 2020");
   });
 
-  it("getShowDetails should return a clone", () => {
-    let d = [{ a: 1 }];
-    wrapper.vm.getShowDetails(d);
+  it("getShowDetails should return a response", () => {
+    let d = { title: "sample" };
+    wrapper.vm.getShowDetails();
     expect(wrapper.vm.showDetails).toEqual(d);
   });
-  /*  it('get details api should return a reponse', () => {
-        let d = jest.fn()
-        wrapper.vm.loadData(d => {
-         axios.get().then().catch()
-        })
-     }) */
 });

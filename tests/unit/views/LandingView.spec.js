@@ -13,7 +13,8 @@ describe("LandingView.vue", () => {
         "font-awesome-icon": true
       },
       mocks: {
-        $router
+        $router,
+        API: { get: jest.fn() }
       }
     });
   });
@@ -68,5 +69,11 @@ describe("LandingView.vue", () => {
     let id = "test";
     wrapper.vm.viewDetailInfo(id);
     expect($router.push).toHaveBeenCalledWith("/details/" + id);
+  });
+
+  it("load data should return the response", async () => {
+    wrapper.vm.loadData();
+    await wrapper.vm.API.get();
+    expect(wrapper.vm.totalShows).toEqual({ title: "sample" });
   });
 });

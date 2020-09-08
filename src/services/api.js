@@ -8,7 +8,7 @@ export default {
       return response.data;
     } catch (e) {
       console.log(e, "error..!!!!");
-      return e;
+      return { error: e };
     }
   }
 };
