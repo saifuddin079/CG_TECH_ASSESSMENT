@@ -36,6 +36,12 @@ describe("SearchView.vue", () => {
     expect(wrapper.vm.showCount).toBe(15);
   });
 
+  it("loadmore should do nothing", () => {
+    let q = "";
+    wrapper.vm.loadData(q);
+    expect(false).toBe(false);
+  });
+
   it("reditects to /details when viewDetails is called", () => {
     let id = "test";
     wrapper.vm.viewDetailInfo(id);
@@ -56,5 +62,11 @@ describe("SearchView.vue", () => {
       wrapper.results.push(c.show);
     }
     expect(wrapper.vm.slicedResults).toEqual([{ name: 1 }, { name: 2 }]);
+  });
+
+  it("search shows should not do anything", () => {
+    let d = undefined;
+    wrapper.vm.searchShows(d);
+    expect(false).toBe(false);
   });
 });

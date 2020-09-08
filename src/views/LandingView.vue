@@ -135,14 +135,16 @@ export default {
     },
 
     // sort results based on genre
-    sortByGenre(payload, temp = {}) {
+    sortByGenre(payload) {
+      let temp = {};
       for (let genre of this.genreList) {
         temp[genre] = [];
         payload.forEach(element => {
-          if (temp[genre].length == 5) {
-            return false;
-          }
-          if (element.genres && element.genres.includes(genre)) {
+          if (
+            element.genres &&
+            element.genres.includes(genre) &&
+            temp[genre].length < 5
+          ) {
             temp[genre].push(element);
           }
         });

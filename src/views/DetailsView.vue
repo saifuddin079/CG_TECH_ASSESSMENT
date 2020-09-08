@@ -3,7 +3,7 @@
     <div class="unit">
       <div class="disp" v-if="loading">Loading ...</div>
       <div class="disp" v-else-if="errorFlag">Netwrok Error</div>
-      <div v-else="showDetails && showDetails.name">
+      <div v-else-if="showDetails && showDetails.name">
         <div class="banner">
           <figure>
             <img

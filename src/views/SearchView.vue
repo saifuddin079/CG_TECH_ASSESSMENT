@@ -44,13 +44,14 @@ export default {
     };
   },
   created() {
-    if (this.query !== "") {
-      this.loadData(this.query);
-    }
+    this.loadData(this.query);
   },
   methods: {
     // load master data
     loadData(q) {
+      if (q == "") {
+        return false;
+      }
       this.loading = true;
       API.get({ path: `/search/shows?q=${q}` })
         .then(data => {
