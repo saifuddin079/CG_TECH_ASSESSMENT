@@ -46,8 +46,3 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 * **Saif Uddin**  - [GitHub](https://github.com/saifuddin079)
 
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
