@@ -1,6 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
 import DetailsView from '@/views/DetailsView.vue'
-import axios from 'axios'
 
 
 describe('DetailsView.vue', () => {
@@ -15,7 +14,7 @@ describe('DetailsView.vue', () => {
             }
         })
     })
-
+    
     afterEach(() => {
         wrapper.destroy()
     })
@@ -28,16 +27,22 @@ describe('DetailsView.vue', () => {
         expect(wrapper.find('div').exists()).toBe(true)
     })
 
-    it('formatDate should not be undefined', () => {
-        const fn = jest.fn();
-        wrapper.setMethods({ formatDate: fn });
-        expect(fn).not.toBe(undefined)
+    it('format date should return date string', () => {
+        let d = '2020-01-01'
+        let result = wrapper.vm.formatDate(d)
+        expect(result).toBe('Wednesday 01 Jan, 2020')
     })
 
-    it('get details api should return a reponse', () => {
-        wrapper.vm.loadData().then(data => {
-            expect(data.title).toBe('SAMPLE')
-        })
+    it('getShowDetails should return a clone', () => {
+        let d = [{a: 1}]
+        wrapper.vm.getShowDetails(d)
+        expect(wrapper.vm.showDetails).toEqual(d)
     })
+   /*  it('get details api should return a reponse', () => {
+        let d = jest.fn()
+        wrapper.vm.loadData(d => {
+         axios.get().then().catch()
+        })
+     }) */
 
 })

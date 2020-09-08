@@ -39,39 +39,43 @@
 </template>
 
 <script>
-  import axios from 'axios'
-  // import API from '@/services/api';
+  import API from '@/services/api';
   import moment from 'moment'
   export default {
     data() {
       return {
+        itemId: this.$route.params.id,
         loading: true,
         errorFlag: false,
         showDetails: {}
       }
     },
+    created() {
+      this.loadData(this.itemId)
+    },
     methods: {
-      loadData: (id) => {
-        return axios.get(`https://api.tvmaze.com/shows/${id}?embed=cast`).then(response => {
-          return response.data
-        })
-      },
-      getShowDetails(id) {
-        this.loadData(id).then(data => {
-          this.showDetails = JSON.parse(JSON.stringify(data));
+      // load master data
+      loadData(id) {
+        this.loading = true
+        API.get({ path: `/shows/${id}?embed=cast` }).then(data => {
+          this.getShowDetails(data)
         }).catch(() => {
-          this.errorFlag = true
+          this.errorFlag = true;
         }).finally(() => {
-          this.loading = false
-        })
+          this.loading = false;
+        });
       },
+
+      // restructure received response - if needed
+      getShowDetails(data) {
+        this.showDetails = JSON.parse(JSON.stringify(data));
+      },
+
+      // format date strings
       formatDate(d) {
         return moment(d).format('dddd DD MMM, YYYY')
       }
     },
-    created() {
-      this.getShowDetails(this.$route.params.id)
-    }
   };
 </script>
 

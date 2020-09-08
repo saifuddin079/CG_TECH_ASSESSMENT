@@ -3,6 +3,7 @@
     <header>
       <Header />
     </header>
+    
     <section>
         <router-view/>
     </section>

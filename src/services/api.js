@@ -1,25 +1,15 @@
 import axios from "axios";
+import { base_url } from './endpoint.js'
 
 export default {
-  async httpGet(opts) {
+  get: async (opts) => {
     try {
-      const options = {
-        method: "GET",
-        url: opts.url,
-        headers: {
-          "Content-Type": "application/json"
-        },
-       //  params: { page: 1 }
-      };
-      let response = await axios(options);
-      if (response && response.data) {
-        return response.data;
-      } else {
-        return null;
-      }
+      let response = await axios.get(base_url + opts.path)
+      return response.data
     } catch (e) {
-      console.log(e)
+      console.log(e, 'error..!!!!')
+      return e
     }
-  }
+  },
 };
 

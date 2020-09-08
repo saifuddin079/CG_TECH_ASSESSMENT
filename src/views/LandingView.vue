@@ -28,8 +28,7 @@
 <script>
   import ItemList from '@/components/ItemList.vue';
   import ItemListMore from '@/components/ItemListMore';
-  import axios from 'axios';
-  import _ from 'lodash'
+  import API from '@/services/api.js'
 
   export default {
     name: 'LandingView',
@@ -80,42 +79,44 @@
       };
     },
     created() {
-      this.getShowList();
+      this.loadData();
     },
     methods: {
-      loadData: () => {
-        return axios.get(`https://api.tvmaze.com/shows?page=1`).then(response => {
-          return response.data
-        })
-      },
-      getShowList() {
-        this.loadData().then(res => {
-          this.totalShows = res
-          this.popularShows = this.getTopPopular(this.totalShows)
-          this.showByGenre = this.sortByGenre(this.totalShows)
-          this.totalLength = Object.keys(this.showByGenre).length
-          this.slicedShowByGenre = Object.fromEntries(Object.entries(this.showByGenre).slice(0, this.showCount))
+      // load master data 
+      loadData() {
+        this.loading = true
+        API.get({ path: `/shows?page=1` }).then(data => {
+          this.getShowList(data)
         }).catch(() => {
+          this.errorFlag = true;
         }).finally(() => {
-          this.loading = false
-        })
+          this.loading = false;
+        });
       },
 
-      showMore() {
-        this.showCount = this.showCount + 5
+      // restructure received response
+      getShowList(data) {
+        this.totalShows = data
+        this.popularShows = this.getTopPopular(this.totalShows)
+        this.showByGenre = this.sortByGenre(this.totalShows)
+        this.totalLength = Object.keys(this.showByGenre).length
         this.slicedShowByGenre = Object.fromEntries(Object.entries(this.showByGenre).slice(0, this.showCount))
+
       },
 
+    // click handler for show more button
+      showMore() {
+        this.showCount = this.showCount + 5;
+        this.slicedShowByGenre = Object.fromEntries(Object.entries(this.showByGenre).slice(0, this.showCount));
+      },
+
+    // get top results based on rating   
       getTopPopular(payload) {
-        return _.sortBy(payload, [
-          function (o) {
-            return o.rating.average;
-          }
-        ]).reverse().slice(0, 10);
+        return (payload.sort((a, b) => Number(b.rating.average) - Number(a.rating.average))).slice(0, this.numItems);
       },
 
-      sortByGenre(payload) {
-        let temp = {}
+    // sort results based on genre  
+      sortByGenre(payload, temp = {}) {
         for (let genre of this.genreList) {
           temp[genre] = []
           payload.forEach(element => {
@@ -129,6 +130,8 @@
         }
         return temp
       },
+
+    // click handle when clicked on an item/card  
       viewDetailInfo(id) {
         this.$router.push(`/details/${id}`)
       }

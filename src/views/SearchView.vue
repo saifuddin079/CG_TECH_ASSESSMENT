@@ -1,8 +1,8 @@
 <template>
   <div>
     <div>
-      <div v-if="loading">loading...</div>
-      <span v-else-if="errorFlag">Network Error</span>
+      <div class="disp" v-if="loading">loading...</div>
+      <div class="disp" v-else-if="errorFlag">Network Error</div>
       <div class="disp" v-else>
         Results found for
         <span class="query">"{{ query }}"</span>
@@ -17,7 +17,7 @@
 <script>
   import ItemList from '@/components/ItemList';
   import ItemListMore from '@/components/ItemListMore';
-  import axios from 'axios'
+  import API from '@/services/api.js'
 
   export default {
     components: {
@@ -37,35 +37,38 @@
     },
     created() {
       if (this.query !== "") {
-        this.searchShows(this.query);
+        this.loadData(this.query);
       }
     },
     methods: {
-      loadData: (q) => {
-        return axios.get(`https://api.tvmaze.com/search/shows?q=${q}`).then(response => {
-          return response.data
-        })
-      },
-      searchShows(q) {
-        this.loading = true;
-        this.results = [];
-        this.loadData(q).then(data => {
-          if (data) {
-              for (let s of data) {
-                this.results.push(s.show);
-              }
-              this.slicedResults = this.results.slice(0, this.showCount);
-            }
+      // load master data 
+      loadData(q) {
+        this.loading = true
+        API.get({ path: `/search/shows?q=${q}` }).then(data => {
+          this.searchShows(data);
         }).catch(() => {
-            this.errorFlag = true
-          }).finally(() => {
-            this.loading = false;
-            this.totalResults = this.results.length
-          });
+          this.errorFlag = true;
+        }).finally(() => {
+          this.loading = false;
+        });
       },
+      // restructure received response
+      searchShows(data) {
+        if (data) {
+          for (let s of data) {
+            this.results.push(s.show);
+          }
+          this.totalResults = this.results.length
+          this.slicedResults = this.results.slice(0, this.showCount);
+        } else {
+          return false
+        }
+      },
+      // click handler when click on an item
       viewDetailInfo(id) {
         this.$router.push(`/details/${id}`)
       },
+      // click handler when click on show more button
       showMore() {
         this.showCount = this.showCount + 10
         this.slicedResults = this.results.slice(0, this.showCount);
@@ -84,7 +87,7 @@
   }
 
   .disp {
-    margin-top: 10px ;
+    margin-top: 10px;
     color: $color-primary;
     font-weight: bold;
   }
