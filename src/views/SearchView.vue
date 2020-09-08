@@ -9,86 +9,95 @@
         : {{ totalResults }}
       </div>
     </div>
-    <ItemList :results="slicedResults" type="tv" @item-clicked="viewDetailInfo($event)" />
-    <ItemListMore v-if="totalResults > showCount" :loading="loading" @view-more="showMore()" />
+    <ItemList
+      :results="slicedResults"
+      type="tv"
+      @item-clicked="viewDetailInfo($event)"
+    />
+    <ItemListMore
+      v-if="totalResults > showCount"
+      :loading="loading"
+      @view-more="showMore()"
+    />
   </div>
 </template>
 
 <script>
-  import ItemList from '@/components/ItemList';
-  import ItemListMore from '@/components/ItemListMore';
-  import API from '@/services/api.js'
+import ItemList from "@/components/ItemList";
+import ItemListMore from "@/components/ItemListMore";
+import API from "@/services/api.js";
 
-  export default {
-    components: {
-      ItemList,
-      ItemListMore
-    },
-    data() {
-      return {
-        query: this.$route.query.q,
-        loading: false,
-        errorFlag: false,
-        results: [],
-        slicedResults: [],
-        totalResults: null,
-        showCount: 10
-      };
-    },
-    created() {
-      if (this.query !== "") {
-        this.loadData(this.query);
-      }
-    },
-    methods: {
-      // load master data 
-      loadData(q) {
-        this.loading = true
-        API.get({ path: `/search/shows?q=${q}` }).then(data => {
+export default {
+  components: {
+    ItemList,
+    ItemListMore
+  },
+  data() {
+    return {
+      query: this.$route.query.q,
+      loading: false,
+      errorFlag: false,
+      results: [],
+      slicedResults: [],
+      totalResults: null,
+      showCount: 10
+    };
+  },
+  created() {
+    if (this.query !== "") {
+      this.loadData(this.query);
+    }
+  },
+  methods: {
+    // load master data
+    loadData(q) {
+      this.loading = true;
+      API.get({ path: `/search/shows?q=${q}` })
+        .then(data => {
           this.searchShows(data);
-        }).catch(() => {
+        })
+        .catch(() => {
           this.errorFlag = true;
-        }).finally(() => {
+        })
+        .finally(() => {
           this.loading = false;
         });
-      },
-      // restructure received response
-      searchShows(data) {
-        if (data) {
-          for (let s of data) {
-            this.results.push(s.show);
-          }
-          this.totalResults = this.results.length
-          this.slicedResults = this.results.slice(0, this.showCount);
-        } else {
-          return false
+    },
+    // restructure received response
+    searchShows(data) {
+      if (data) {
+        for (let s of data) {
+          this.results.push(s.show);
         }
-      },
-      // click handler when click on an item
-      viewDetailInfo(id) {
-        this.$router.push(`/details/${id}`)
-      },
-      // click handler when click on show more button
-      showMore() {
-        this.showCount = this.showCount + 10
+        this.totalResults = this.results.length;
         this.slicedResults = this.results.slice(0, this.showCount);
-      },
+      }
+    },
+    // click handler when click on an item
+    viewDetailInfo(id) {
+      this.$router.push(`/details/${id}`);
+    },
+    // click handler when click on show more button
+    showMore() {
+      this.showCount = this.showCount + 10;
+      this.slicedResults = this.results.slice(0, this.showCount);
     }
-  };
+  }
+};
 </script>
 
 <style lang="scss" scoped>
-  .query {
-    color: $color-text-secondary;
-    background-color: $color-primary;
-    font-weight: bold;
-    font-style: italic;
-    text-transform: lowercase;
-  }
+.query {
+  color: $color-text-secondary;
+  background-color: $color-primary;
+  font-weight: bold;
+  font-style: italic;
+  text-transform: lowercase;
+}
 
-  .disp {
-    margin-top: 10px;
-    color: $color-primary;
-    font-weight: bold;
-  }
+.disp {
+  margin-top: 10px;
+  color: $color-primary;
+  font-weight: bold;
+}
 </style>

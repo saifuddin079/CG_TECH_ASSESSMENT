@@ -9,13 +9,13 @@
 </template>
 
 <script>
-    export default {
-      methods:{
-        viewMoreData(){
-          this.$emit('view-more');
-        }
-      }
+export default {
+  methods: {
+    viewMoreData() {
+      this.$emit("view-more");
     }
+  }
+};
 </script>
 
 <style lang="scss" scoped>

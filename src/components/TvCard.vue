@@ -1,13 +1,20 @@
 <template>
   <li class="card">
-    <div >
+    <div>
       <a href="#" @click.prevent="viewDetail">
         <figure>
           <img v-if="item && item.image" :src="item.image.medium" />
           <img v-else src="@/assets/images/NoBanner.png" />
         </figure>
-        <span class="card-title">{{ item.name }} <br /> <br />
-          <font-awesome-icon class="icon" icon="star" size="1x" /> {{item.rating && item.rating.average ? item.rating.average+'/10' : 'No Ratings'}}
+        <span class="card-title"
+          >{{ item.name }} <br />
+          <br />
+          <font-awesome-icon class="icon" icon="star" size="1x" />
+          {{
+            item.rating && item.rating.average
+              ? item.rating.average + "/10"
+              : "No Ratings"
+          }}
         </span>
       </a>
     </div>
@@ -16,13 +23,13 @@
 
 <script>
 export default {
-  name: 'TvCard',
+  name: "TvCard",
   props: {
-    item: Object,
+    item: Object
   },
   methods: {
     viewDetail() {
-      this.$emit('item-clicked', this.item.id);
+      this.$emit("item-clicked", this.item.id);
     }
   }
 };
@@ -43,15 +50,15 @@ img {
 span {
   padding: 2px;
   color: $color-text-primary;
-  font-size: .9em;
+  font-size: 0.9em;
 
-  &.icon-container{
-    float:left; 
+  &.icon-container {
+    float: left;
     margin-right: 5px;
-    padding-bottom:5px;
+    padding-bottom: 5px;
   }
 }
-i{
+i {
   display: inline-block;
   padding-top: 4px;
 }
@@ -80,10 +87,9 @@ a {
   }
 }
 
-.icon{
+.icon {
   display: inline;
   color: #fff;
-  
 }
 @include sm {
   .card {

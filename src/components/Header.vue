@@ -3,7 +3,12 @@
     <ul>
       <li v-for="(link, index) in links" :key="index">
         <router-link :to="link.url">
-          <font-awesome-icon :icon="link.icon" :transform="link.transform" size="2x" class="icon" />
+          <font-awesome-icon
+            :icon="link.icon"
+            :transform="link.transform"
+            size="2x"
+            class="icon"
+          />
           <br />
           <span>{{ link.text }}</span>
         </router-link>
@@ -16,19 +21,19 @@
 </template>
 
 <script>
-import Search from '@/components/Search';
+import Search from "@/components/Search";
 
 export default {
-  name: 'Header',
+  name: "Header",
   components: { Search },
   data() {
     return {
       links: [
         {
-          url: '/tops',
-          text: 'TV',
-          icon: 'home',
-          transform: 'shrink-8'
+          url: "/tops",
+          text: "TV",
+          icon: "home",
+          transform: "shrink-8"
         }
       ]
     };
@@ -51,7 +56,7 @@ li {
   display: inline-block;
   box-sizing: border-box;
 
-  &:last-child{
+  &:last-child {
     flex-grow: 1;
     border-right: 1px solid $background-border;
   }
@@ -70,9 +75,9 @@ a {
 span {
   display: none;
 }
-.navigation{
+.navigation {
   margin: 0 auto;
-    max-width: 1000px;
+  max-width: 1000px;
 }
 .icon {
   margin-top: 15px;

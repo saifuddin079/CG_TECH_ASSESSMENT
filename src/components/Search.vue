@@ -1,7 +1,12 @@
 <template>
   <div class="search-container">
     <button>
-      <font-awesome-icon icon="search" transform="shrink-6" size="2x" class="icon-search" />
+      <font-awesome-icon
+        icon="search"
+        transform="shrink-6"
+        size="2x"
+        class="icon-search"
+      />
     </button>
     <input
       type="text"
@@ -15,17 +20,17 @@
 
 <script>
 export default {
-  name: 'Search',
+  name: "Search",
   data() {
     return {
-      query: '',
+      query: ""
     };
   },
   methods: {
     search() {
-      if (this.query.length >= 2){
-        this.$router.push('/search?q=' + this.query);
-        window.location.reload()
+      if (this.query.length >= 2) {
+        this.$router.push("/search?q=" + this.query);
+        window.location.reload();
       }
     }
   }

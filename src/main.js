@@ -13,8 +13,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-
-library.add( faHome, faSearch, faFilm, faStar, faTv, faVideo);
+library.add(faHome, faSearch, faFilm, faStar, faTv, faVideo);
 
 Vue.component("font-awesome-icon", FontAwesomeIcon);
 

@@ -22,7 +22,7 @@
 ul {
   list-style: none;
   margin: 0;
-  padding: 0
+  padding: 0;
 }
 li {
   display: inline;
@@ -36,10 +36,10 @@ a {
   }
 }
 @include sm {
-  .footer{
+  .footer {
     max-width: 1000px;
   }
-  ul{
+  ul {
     display: flex;
   }
   li {

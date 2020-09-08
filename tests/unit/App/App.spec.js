@@ -1,22 +1,22 @@
-import { shallowMount } from '@vue/test-utils'
-import App from '@/App.vue'
+import { shallowMount } from "@vue/test-utils";
+import App from "@/App.vue";
 
-describe('App.vue', () => {
+describe("App.vue", () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallowMount(App, { 
+    wrapper = shallowMount(App, {
       stubs: {
-        'router-view': true
-      } 
-    })
-  })
+        "router-view": true
+      }
+    });
+  });
 
   afterEach(() => {
-    wrapper.destroy()
-  })
+    wrapper.destroy();
+  });
 
-  it('should renders main element #app', () => {
-    expect(wrapper.find("#app").exists()).toBe(true)
-  }) 
-})
+  it("should renders main element #app", () => {
+    expect(wrapper.find("#app").exists()).toBe(true);
+  });
+});

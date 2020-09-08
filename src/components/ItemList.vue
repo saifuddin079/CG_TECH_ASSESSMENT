@@ -1,19 +1,20 @@
 <template>
   <ul>
-    <TvCard 
-      v-for="(item, index) in results" 
-      :key="index" 
-      :item="item" 
-      :type="type" 
-      v-on='$listeners'/>
+    <TvCard
+      v-for="(item, index) in results"
+      :key="index"
+      :item="item"
+      :type="type"
+      v-on="$listeners"
+    />
   </ul>
 </template>
 
 <script>
-import TvCard from '@/components/TvCard.vue'
+import TvCard from "@/components/TvCard.vue";
 
 export default {
-  name: 'ItemList',
+  name: "ItemList",
   components: {
     TvCard
   },
@@ -21,16 +22,16 @@ export default {
     results: Array,
     type: String
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  ul {
-    display: flex;   
-    flex-wrap: wrap; 
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 </style>

@@ -7,7 +7,7 @@ import DetailsView from "@/views/DetailsView";
 Vue.use(Router);
 
 export default new Router({
-  mode: 'history',
+  mode: "history",
   base: process.env.NODE_ENV === "/",
   routes: [
     {
@@ -25,7 +25,7 @@ export default new Router({
       component: SearchView
     },
     {
-      path:"/details/:id",
+      path: "/details/:id",
       name: "details",
       component: DetailsView
     },
