@@ -35,7 +35,7 @@ body {
   padding: 0;
   background-color: $background-primary;
   font-size: 100%;
-  background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSz4AiDxCb32U23hsgD_LnLrp2BJm8tsiAmZg&usqp=CAU");
+  background: url(./assets/images/backgound.png);
 }
 #app {
   font-family: $font-primary, monospace;
@@ -46,13 +46,13 @@ body {
 header {
   border-bottom: 1px solid $background-border;
   background-color: $background-secondary;
-  background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSm2xXSCGxaBBnZ2xcU7n92S4RP1aasU9Eq1A&usqp=CAU");
+  background: url(./assets/images/headerFooterImage.jpg);
 }
 footer {
   margin-top: 2em;
   border-top: 1px solid $background-border;
   background-color: $background-secondary;
-  background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSm2xXSCGxaBBnZ2xcU7n92S4RP1aasU9Eq1A&usqp=CAU");
+  background: url(./assets/images/headerFooterImage.jpg);
 }
 section {
   display: block;
