@@ -21,10 +21,7 @@
     <span v-else>
       <div v-for="(value, key) in slicedShowByGenre" :key="key">
         <h2 class="title">{{ key }}</h2>
-        <ItemList
-          :results="value"
-          @item-clicked="viewDetailInfo($event)"
-        />
+        <ItemList :results="value" @item-clicked="viewDetailInfo($event)" />
       </div>
       <ItemListMore
         v-if="totalLength > showCount"
@@ -154,7 +151,6 @@ export default {
 
     // click handle when clicked on an item/card
     viewDetailInfo(id) {
-      console.log(id, 'sdfsdgdfgfd')
       this.$router.push(`/details/${id}`);
     }
   }
