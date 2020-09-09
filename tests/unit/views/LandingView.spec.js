@@ -23,10 +23,6 @@ describe("LandingView.vue", () => {
     wrapper.destroy();
   });
 
-  it("LandingView is a vue instance", () => {
-    expect(wrapper.isVueInstance()).toBeTruthy();
-  });
-
   it("renders a div element", () => {
     expect(wrapper.find("div").exists()).toBe(true);
   });

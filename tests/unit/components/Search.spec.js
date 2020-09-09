@@ -22,10 +22,6 @@ describe("Search.vue", () => {
     wrapper.destroy();
   });
 
-  it("Search is a component", () => {
-    expect(wrapper.isVueInstance()).toBeTruthy();
-  });
-
   it("displays an empty input field", () => {
     expect(wrapper.find("input").element.placeholder).toBe("Search TV Shows");
     expect(wrapper.find("input").element.value).toBe("");

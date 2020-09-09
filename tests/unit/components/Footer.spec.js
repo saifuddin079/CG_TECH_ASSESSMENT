@@ -12,10 +12,6 @@ describe("Header.vue", () => {
     wrapper.destroy();
   });
 
-  it("Footer is a component", () => {
-    expect(wrapper.isVueInstance()).toBeTruthy();
-  });
-
   it("renders a div with class footer", () => {
     expect(wrapper.find("div.footer").exists()).toBe(true);
   });

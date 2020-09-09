@@ -12,10 +12,6 @@ describe("ItemListMore.vue", () => {
     wrapper.destroy();
   });
 
-  it("ItemListMore is a component", () => {
-    expect(wrapper.isVueInstance()).toBeTruthy();
-  });
-
   it("renders a div element", () => {
     expect(wrapper.find("div").exists()).toBe(true);
   });

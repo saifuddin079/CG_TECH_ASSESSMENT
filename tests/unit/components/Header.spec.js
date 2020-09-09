@@ -17,10 +17,6 @@ describe("Header.vue", () => {
     wrapper.destroy();
   });
 
-  it("Header is a component", () => {
-    expect(wrapper.isVueInstance()).toBeTruthy();
-  });
-
   it("renders a div with class navigation", () => {
     expect(wrapper.find("div.navigation").exists()).toBe(true);
   });

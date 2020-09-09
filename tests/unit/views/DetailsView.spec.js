@@ -18,10 +18,6 @@ describe("DetailsView.vue", () => {
     wrapper.destroy();
   });
 
-  it("DetailsView is a vue instance", () => {
-    expect(wrapper.isVueInstance()).toBeTruthy();
-  });
-
   it("renders a div element", () => {
     expect(wrapper.find("div").exists()).toBe(true);
   });

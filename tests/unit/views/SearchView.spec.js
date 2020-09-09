@@ -22,10 +22,6 @@ describe("SearchView.vue", () => {
     wrapper.destroy();
   });
 
-  it("SearchView is a vue instance", () => {
-    expect(wrapper.isVueInstance()).toBeTruthy();
-  });
-
   it("renders a div element", () => {
     expect(wrapper.find("div").exists()).toBe(true);
   });

@@ -26,10 +26,6 @@ describe("TvCard.vue", () => {
     wrapper.destroy();
   });
 
-  it("TvCard is a component", () => {
-    expect(wrapper.isVueInstance()).toBeTruthy();
-  });
-
   it("renders a li with class card", () => {
     expect(wrapper.findAll("li.card").length).toEqual(1);
   });

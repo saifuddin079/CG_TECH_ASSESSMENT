@@ -122,9 +122,13 @@ export default {
     // click handler for show more button
     showMore() {
       this.showCount = this.showCount + 5;
-      this.slicedShowByGenre = Object.fromEntries(
+      /* this.slicedShowByGenre = Object.fromEntries(
         Object.entries(this.showByGenre).slice(0, this.showCount)
-      );
+      ); */
+      for(let index = 0; index < this.showCount; index++) {
+        let key = Object.keys(this.showByGenre)[index];
+        this.slicedShowByGenre[key] = this.showByGenre[key]
+      }
     },
 
     // get top results based on rating
