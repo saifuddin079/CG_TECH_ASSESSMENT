@@ -51,12 +51,6 @@ span {
   padding: 2px;
   color: $color-text-primary;
   font-size: 0.9em;
-
-  &.icon-container {
-    float: left;
-    margin-right: 5px;
-    padding-bottom: 5px;
-  }
 }
 i {
   display: inline-block;

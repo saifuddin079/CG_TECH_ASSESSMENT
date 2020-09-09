@@ -4,7 +4,6 @@
       v-for="(item, index) in results"
       :key="index"
       :item="item"
-      :type="type"
       v-on="$listeners"
     />
   </ul>
@@ -19,8 +18,7 @@ export default {
     TvCard
   },
   props: {
-    results: Array,
-    type: String
+    results: Array
   }
 };
 </script>

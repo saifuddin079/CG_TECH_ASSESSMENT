@@ -9,7 +9,7 @@
       <ItemList
         :results="popularShows"
         type="movie"
-        @item-clicked="viewDetailInfo"
+        @item-clicked="viewDetailInfo($event)"
       />
     </span>
     <h2 class="title">
@@ -23,7 +23,6 @@
         <h2 class="title">{{ key }}</h2>
         <ItemList
           :results="value"
-          type="tv"
           @item-clicked="viewDetailInfo($event)"
         />
       </div>
@@ -155,6 +154,7 @@ export default {
 
     // click handle when clicked on an item/card
     viewDetailInfo(id) {
+      console.log(id, 'sdfsdgdfgfd')
       this.$router.push(`/details/${id}`);
     }
   }
