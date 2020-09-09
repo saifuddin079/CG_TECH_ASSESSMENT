@@ -6,7 +6,7 @@
       <div class="disp" v-else>
         Results found for
         <span class="query">"{{ query }}"</span>
-        : {{ totalResults }}
+        : {{ totalResultCount }}
       </div>
     </div>
     <ItemList
@@ -15,7 +15,7 @@
       @item-clicked="viewDetailInfo($event)"
     />
     <ItemListMore
-      v-if="totalResults > showCount"
+      v-if="totalResultCount > showCount"
       :loading="loading"
       @view-more="showMore()"
     />
@@ -39,7 +39,7 @@ export default {
       errorFlag: false,
       results: [],
       slicedResults: [],
-      totalResults: null,
+      totalResultCount: null,
       showCount: 10
     };
   },
@@ -70,7 +70,7 @@ export default {
         for (let s of data) {
           this.results.push(s.show);
         }
-        this.totalResults = this.results.length;
+        this.totalResultCount = this.results.length;
         this.slicedResults = this.results.slice(0, this.showCount);
       }
     },

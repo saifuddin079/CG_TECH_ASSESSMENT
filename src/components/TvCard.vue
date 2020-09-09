@@ -52,10 +52,6 @@ span {
   color: $color-text-primary;
   font-size: 0.9em;
 }
-i {
-  display: inline-block;
-  padding-top: 4px;
-}
 a {
   color: #333;
   text-decoration: none;

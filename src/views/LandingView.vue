@@ -47,8 +47,6 @@ export default {
     return {
       numItems: 10,
       totalShows: [],
-      resultsMovie: [],
-      resultsTv: [],
       popularShows: [],
       showByGenre: {},
       slicedShowByGenre: {},
@@ -82,7 +80,7 @@ export default {
       totalLength: 0,
       errorFlag: false,
       loading: true,
-      showCount: 5
+      showCount: 0
     };
   },
   created() {
@@ -110,18 +108,15 @@ export default {
       this.popularShows = this.getTopPopular(this.totalShows);
       this.showByGenre = this.sortByGenre(this.totalShows);
       this.totalLength = Object.keys(this.showByGenre).length;
-      this.slicedShowByGenre = Object.fromEntries(
-        Object.entries(this.showByGenre).slice(0, this.showCount)
-      );
+      this.showMore();
     },
 
     // click handler for show more button
     showMore() {
       this.showCount = this.showCount + 5;
-      for (let index = 0; index < this.showCount; index++) {
-        let key = Object.keys(this.showByGenre)[index];
-        this.slicedShowByGenre[key] = this.showByGenre[key];
-      }
+      this.slicedShowByGenre = Object.fromEntries(
+        Object.entries(this.showByGenre).slice(0, this.showCount)
+      );
     },
 
     // get top results based on rating
