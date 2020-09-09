@@ -44,7 +44,7 @@ figure {
 img {
   width: 100%;
   height: auto;
-  box-shadow: 0px 1px 5px 0px $poster-shadow;
+  box-shadow: 0px 1px 5px 0px $card-shadow;
   box-sizing: border-box;
 }
 span {
@@ -58,7 +58,7 @@ a {
   background-color: $color-primary;
   &:hover {
     img {
-      box-shadow: 0px 1px 5px 0px $poster-shadow-active;
+      box-shadow: 0px 1px 5px 0px $card-shadow-active;
     }
     span.card-title {
       color: $color-text-secondary;

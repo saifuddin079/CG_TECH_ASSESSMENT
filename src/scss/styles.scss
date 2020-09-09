@@ -1,4 +1,3 @@
-
 // Colors
 $color-primary: #b62028;
 $color-secondary: rgb(175, 65, 28);
@@ -11,14 +10,16 @@ $background-secondary: #b62028;
 $background-border: #46080b;
 $background-input: #e1d1e6;
 
-// - Poster
-$poster-shadow: rgba(0, 0, 0, 0.4);
-$poster-shadow-active: rgba(255, 102, 51, 0.3);
-
 
 // Fonts
 $font-primary: "Courier New", Courier, monospace;
 $font-secondary: "Trocchi";
+
+
+// Card
+$card-shadow: rgba(0, 0, 0, 0.4);
+$card-shadow-active: rgba(255, 102, 51, 0.3);
+
 
 // Breakpoints
 $screen-sm-min: 640px;
