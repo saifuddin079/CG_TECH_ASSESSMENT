@@ -12,7 +12,7 @@ describe("Header.vue", () => {
     wrapper.destroy();
   });
 
-  it('is instantiated', () => {
+  it("is instantiated", () => {
     expect(wrapper).toBeTruthy();
   });
 
