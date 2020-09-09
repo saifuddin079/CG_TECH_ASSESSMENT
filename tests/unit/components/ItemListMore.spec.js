@@ -16,14 +16,8 @@ describe("ItemListMore.vue", () => {
     expect(wrapper.find("div").exists()).toBe(true);
   });
 
-  it("calls viewMoreData method when link is clicked", () => {
-    wrapper.vm.viewMoreData = jest.fn();
-    wrapper.find("a").trigger("click.prevent");
-    expect(wrapper.vm.viewMoreData).toBeCalled();
-  });
-
   test("emits on-close when button is clicked", () => {
-    wrapper.find("a").trigger("click");
+    wrapper.find("button").trigger("click");
     expect(wrapper.emitted("view-more")).toHaveLength(1);
   });
 });
