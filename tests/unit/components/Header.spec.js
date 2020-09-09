@@ -17,6 +17,10 @@ describe("Header.vue", () => {
     wrapper.destroy();
   });
 
+  it('is instantiated', () => {
+    expect(wrapper).toBeTruthy();
+  });
+
   it("renders a div with class navigation", () => {
     expect(wrapper.find("div.navigation").exists()).toBe(true);
   });

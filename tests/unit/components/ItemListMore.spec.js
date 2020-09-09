@@ -12,11 +12,21 @@ describe("ItemListMore.vue", () => {
     wrapper.destroy();
   });
 
+  it('is instantiated', () => {
+    expect(wrapper).toBeTruthy();
+  });
+
   it("renders a div element", () => {
     expect(wrapper.find("div").exists()).toBe(true);
   });
 
-  test("emits on-close when button is clicked", () => {
+  it("calls viewMoreData method when button is clicked", () => {
+    wrapper.vm.viewMoreData = jest.fn();
+    wrapper.find("button").trigger("click");
+    expect(wrapper.vm.viewMoreData).toHaveBeenCalledTimes(1);
+  });
+
+  it("emits on-close when button is clicked", () => {
     wrapper.find("button").trigger("click");
     expect(wrapper.emitted("view-more")).toHaveLength(1);
   });

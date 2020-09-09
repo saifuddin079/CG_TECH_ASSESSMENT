@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="more-container">
-      <button @click="viewMoreData">
+      <button id="btn" @click.prevent="viewMoreData">
         <span>Show More Genres</span>
       </button>
     </div>
@@ -23,7 +23,7 @@ export default {
   text-align: center;
   margin-top: 2em;
 
-  button {
+  #btn {
     display: inline-block;
     padding: 10px 0;
     border: 1px solid $background-border;
