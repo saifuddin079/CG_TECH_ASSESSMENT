@@ -17,10 +17,9 @@ describe("ItemListMore.vue", () => {
   });
 
   it("calls viewMoreData method when link is clicked", () => {
-    const fn = jest.fn();
-    wrapper.setMethods({ viewMoreData: fn });
+    wrapper.vm.viewMoreData = jest.fn();
     wrapper.find("a").trigger("click.prevent");
-    expect(fn).toBeCalled();
+    expect(wrapper.vm.viewMoreData).toBeCalled();
   });
 
   test("emits on-close when button is clicked", () => {
