@@ -122,9 +122,9 @@ export default {
     // click handler for show more button
     showMore() {
       this.showCount = this.showCount + 5;
-      for(let index = 0; index < this.showCount; index++) {
+      for (let index = 0; index < this.showCount; index++) {
         let key = Object.keys(this.showByGenre)[index];
-        this.slicedShowByGenre[key] = this.showByGenre[key]
+        this.slicedShowByGenre[key] = this.showByGenre[key];
       }
     },
 
