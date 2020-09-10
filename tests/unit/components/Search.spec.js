@@ -27,8 +27,6 @@ describe("Search.vue", () => {
     expect(wrapper.find("input").element.value).toBe("");
   });
 
-
-
   it("call route when search is invoked", () => {
     window.location.reload = jest.fn();
     $router.push = jest.fn();
