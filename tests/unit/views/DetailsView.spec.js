@@ -28,9 +28,10 @@ describe("DetailsView.vue", () => {
     expect(result).toBe("Wednesday 01 Jan, 2020");
   });
 
-  it("getShowDetails should return a response", () => {
+  it("getShowDetails should return a response", async() => {
     let d = { title: "sample" };
-    wrapper.vm.getShowDetails();
+    wrapper.vm.getShowDetails = jest.fn()
+    await wrapper.vm.getShowDetails();
     expect(wrapper.vm.showDetails).toEqual(d);
   });
 });

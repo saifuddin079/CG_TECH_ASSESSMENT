@@ -30,13 +30,6 @@ describe("TvCard.vue", () => {
     expect(wrapper.findAll("li.card").length).toEqual(1);
   });
 
-  it("calls viewDetail method when click on link", () => {
-    const fn = jest.fn();
-    wrapper.setMethods({ viewDetail: fn });
-    wrapper.find("a").trigger("click.prevent");
-    expect(fn).toBeCalled();
-  });
-
   test("emits viewDetail when button is clicked", () => {
     wrapper.vm.viewDetail();
     expect(wrapper.emitted("item-clicked")).toHaveLength(1);

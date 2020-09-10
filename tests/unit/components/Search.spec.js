@@ -27,12 +27,7 @@ describe("Search.vue", () => {
     expect(wrapper.find("input").element.value).toBe("");
   });
 
-  it("calls search method when press enter on input", () => {
-    const fn = jest.fn();
-    wrapper.setMethods({ search: fn });
-    wrapper.find("input").trigger("keypress.enter");
-    expect(fn).toBeCalled();
-  });
+
 
   it("call route when search is invoked", () => {
     window.location.reload = jest.fn();

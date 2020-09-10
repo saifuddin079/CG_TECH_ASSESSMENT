@@ -28,9 +28,8 @@ describe("LandingView.vue", () => {
   });
 
   it("sortByGenre should not be undefined", () => {
-    const fn = jest.fn();
-    wrapper.setMethods({ sortByGenre: fn });
-    expect(fn).not.toBe(undefined);
+    wrapper.sortByGenre = jest.fn();
+    expect(wrapper.sortByGenre).not.toBe(undefined);
   });
 
   it("getTopPopular should return sorted array", () => {
@@ -53,12 +52,6 @@ describe("LandingView.vue", () => {
       comedy: [{ genres: ["comedy", "anime"], name: "Sample_1" }],
       anime: [{ genres: ["comedy", "anime"], name: "Sample_1" }]
     });
-  });
-
-  it("showmore should add more results", () => {
-    wrapper.vm.showCount = 5;
-    wrapper.vm.showMore();
-    expect(wrapper.vm.showCount).toBe(10);
   });
 
   it("redirect when viewdetails is called", () => {
